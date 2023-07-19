@@ -7,7 +7,6 @@ let playerTurn = getUserEntry();
 
 // Randomly generate rock, paper, or scissors for the computer
 let computerTurn = generateComputerTurn();
-console.log(computerTurn);
 
 // Compare the user entry and the computer entry
 switch(true){
@@ -17,42 +16,42 @@ switch(true){
         break;
     //player rock vs pc paper = pc wins
     case (playerTurn === "rock" && computerTurn === "paper"):
-        console.log(`You played ${playerTurn} vs ${computerTurn}`);
+        console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
         console.log("Computer wins!");
         break;
     //pc rock vs player paper = player wins
     case (computerTurn === "rock" && playerTurn === "paper"):
-        console.log(`You played ${playerTurn} vs ${computerTurn}`);
+        console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
         console.log("Player wins!");
         break;
     //pc rock vs player scissors = pc wins
     case (computerTurn === "rock" && playerTurn === "scissors"):
-        console.log(`You played ${playerTurn} vs ${computerTurn}`);
+        console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
         console.log("Computer wins!");
         break;
     //player rock vs pc scissors = player wins
     case (playerTurn === "rock" && computerTurn === "scissors"):
-        console.log(`You played ${playerTurn} vs ${computerTurn}`);
+        console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
         console.log("Player wins!");
         break;
     //pc paper vs player rock = pc wins
     case (computerTurn === "paper" && playerTurn === "rock"):
-        console.log(`You played ${playerTurn} vs ${computerTurn}`);
+        console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
         console.log("Computer wins!");
         break;
     //player paper vs pc rock = player wins
     case (playerTurn === "paper" && computerTurn === "rock"):
-        console.log(`You played ${playerTurn} vs ${computerTurn}`);
+        console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
         console.log("Player wins!");
         break;
     //player paper vs pc scissors = pc wins
     case (playerTurn === "paper" && computerTurn === "scissors"):
-        console.log(`You played ${playerTurn} vs ${computerTurn}`);
+        console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
         console.log("Computer wins!");
         break;
     //pc paper vs player scissors = player wins
     case (computerTurn === "paper" && playerTurn === "scissors"):
-        console.log(`You played ${playerTurn} vs ${computerTurn}`);
+        console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
         console.log("Player wins!");
         break;  
 }
