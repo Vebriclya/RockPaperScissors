@@ -18,6 +18,35 @@
     let pcWins = 0;
     let playerWins = 0;
 
+    winnerArray.forEach(function(winner) {
+            if(winner === "pc"){
+                pcWins += 1;
+            }
+            else if(winner === "player"){
+                playerWins += 1;
+            }
+            else if(winner === "tie"){
+                pcWins +- 1;
+                playerWins += 1;
+            }
+            else if(winner === "dummyentry1" || winner === "dummyentry2"){
+
+            }
+            else{
+                console.log("An error occured calculating win amounts.");
+            }
+    });
+
+
+
+    console.log(`Player won ${playerWins} times`);
+    console.log(`Computer won ${pcWins} times`);
+
+
+    /*
+    let pcWins = 0;
+    let playerWins = 0;
+
     foreach(winner in winnerArray){
         if(winner === "pc"){
             pcWins += 1;
@@ -36,6 +65,10 @@
 
     console.log(`Player won ${playerWins} times`);
     console.log(`Computer won ${pcWins} times`);
+
+
+    */
+
 
     /* Display a message about that
     if(playerWins > pcWins){
