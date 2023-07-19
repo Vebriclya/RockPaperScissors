@@ -1,23 +1,33 @@
     let continueGame = true;
+    let pcWins = 0;
+    let playerWins = 0;
     let winnerArray = ["dummyentry1", "dummyentry2"];
     
     // Greet user
     console.log("Welcome to Rock, Paper, Scissors!");
 
+    // Main game loop
     while(continueGame === true){
         let winner = playRound();
         logWin(winner);
-        continueGame = anotherRound();
-        
-        
+        continueGame = anotherRound();      
     }
 
-    // Display how many times you won, and how many times pc won
-    console.log(winnerArray)
+    /* Chad C#
+    foreach(winner in WinnerArray){
+        if(x){
+            //do this
+        }else if(sfse){
+            //do this
+        }else{
+            //peepee poopoo
+        }
+    }
 
-    let pcWins = 0;
-    let playerWins = 0;
+     vs virgin JS...
+     */
 
+    // Loop through the array to calculate winners
     winnerArray.forEach(function(winner) {
             if(winner === "pc"){
                 pcWins += 1;
@@ -30,7 +40,6 @@
                 playerWins += 1;
             }
             else if(winner === "dummyentry1" || winner === "dummyentry2"){
-
             }
             else{
                 console.log("An error occured calculating win amounts.");
@@ -38,50 +47,7 @@
     });
 
 
-
-    console.log(`Player won ${playerWins} times`);
-    console.log(`Computer won ${pcWins} times`);
-
-
-    /*
-    let pcWins = 0;
-    let playerWins = 0;
-
-    foreach(winner in winnerArray){
-        if(winner === "pc"){
-            pcWins += 1;
-        }
-        else if(winner === "player"){
-            playerWins += 1;
-        }
-        else if(winner === "tie"){
-            pcWins +- 1;
-            playerWins += 1;
-        }
-        else{
-            console.log("An error occured calculating win amounts.");
-        }
-    }
-
-    console.log(`Player won ${playerWins} times`);
-    console.log(`Computer won ${pcWins} times`);
-
-
-    */
-
-
-    /* Display a message about that
-    if(playerWins > pcWins){
-        console.log("Congrats, you're officially better than the computer!");
-    }
-    else if(pcWins > playerWins){
-        console.log("The computer was better than you. How embarassing.");
-    }else if(pcWins === playerWins){
-        console.log("You're about as good at this as the computer. Make of this what you will.");
-    }else{
-        console.log("An error occurred comparing winners. We don't know if you are smarter than the computer.");
-    }
-    */
+    overallWinner(playerWins, pcWins);
 
 
 /* ___________FUNCTIONS___________ */
@@ -236,4 +202,21 @@ function anotherRound(continueGame){
         }
 
     return continueGame;
+}
+
+function overallWinner(playerWins, pcWins){
+    console.log("");
+    console.log(`You won ${playerWins} times, and the computer won ${pcWins} times.`);
+    console.log("Which means....");
+
+    if(playerWins > pcWins){
+        console.log("Congrats, you're officially better than the computer!");
+    }
+    else if(pcWins > playerWins){
+        console.log("The computer was better than you. How embarassing.");
+    }else if(pcWins === playerWins){
+        console.log("You're about as good at this as the computer. Make of this what you will.");
+    }else{
+        console.log("An error occurred comparing winners. We don't know if you are smarter than the computer.");
+    }
 }
