@@ -1,17 +1,50 @@
+    let continueGame = true;
+    let winnerArray;
+    
     // Greet user
     console.log("Welcome to Rock, Paper, Scissors!");
 
-    let winner = playRound();
-    
-    if(winner === "pc"){
+    while(continueGame === true){
+        let winner = playRound();
+        logWin(winner);
 
+        
+        let anotherRound = "";
+
+        while(anotherRound != "y" && anotherRound != "n"){
+            anotherRound = prompt("Keep playing? Y/N");
+            console.log(anotherRound);
+            if(anotherRound.toLowerCase() === "y" || anotherRound.toLowerCase() === "yes"){
+                anotherRound = "y";
+                console.log(`continueGame is ${continueGame}`);
+            }
+            else if(anotherRound.toLowerCase() === "n" || anotherRound.toLowerCase() === "no"){
+                anotherRound = "n";
+                continueGame = false;
+                console.log(`continueGame is ${continueGame}`);
+            }
+            else{
+                console.log(`Sorry, ${anotherRound} isn't a valid answer.`);
+                console.log(`continueGame is ${continueGame}`);
+            }
+        }
     }
-    else if(winner === "player")
 
+    // Display how many times you won, and how many times pc won
+    //console.log(winnerArray)
 
-    // ask the player if they want to keep going
-    // keep track of how many times player has won, and how many times computer has won
-
+    /* Display a message about that
+    if(playerWins > pcWins){
+        console.log("Congrats, you're officially better than the computer!");
+    }
+    else if(pcWins > playerWins){
+        console.log("The computer was better than you. How embarassing.");
+    }else if(pcWins === playerWins){
+        console.log("You're about as good at this as the computer. Make of this what you will.");
+    }else{
+        console.log("An error occurred comparing winners. We don't know if you are smarter than the computer.");
+    }
+    */
 
 
 /* ___________FUNCTIONS___________ */
@@ -127,4 +160,20 @@ function battle(playerTurn, computerTurn){
     }
 
     return winner;
+}
+
+function logWin(winner){
+    if(winner === "pc"){
+        winnerArray.push("pc");
+    }
+    else if(winner === "player"){
+        winnerArray.push("player");
+    }
+    else if(winner === "tie"){
+        winnerArray.push("pc");
+        winnerArray.push("player");
+    }
+    else{
+        console.log("An error has occurred logging the winner. No winners have been logged.");
+    }
 }
