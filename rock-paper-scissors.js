@@ -57,16 +57,6 @@ switch(true){
 }
 
 
-//pc rock vs player scissors = pc wins
-//player rock vs pc scissors = player wins
-
-//pc paper vs player rock = pc wins
-//player paper vs pc rock = player wins
-
-//player paper vs pc scissors = pc wins
-//pc paper vs player scissors = player wins
-
-// Print the winner
 
 // Ask user if they want to play again, otherwise quit
 
@@ -98,7 +88,6 @@ function getUserEntry(){
         userChoice = prompt("Please choose rock, paper, or scissors");
         if(userChoice.toLowerCase() === "rock" || userChoice.toLowerCase() === "paper" || userChoice.toLowerCase() === "scissors"){
             verifyEntry = true;
-            console.log(`You entered ${userChoice.toLowerCase()}`);
         }
         else{
             console.log(`Sorry, ${userChoice} isn't a valid entry.`);
