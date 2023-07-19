@@ -28,7 +28,7 @@
      */
 
     // Loop through the array to calculate winners
-    winnerArray.forEach(function(winner) {
+    winnerArray.forEach((winner) => {
             if(winner === "pc"){
                 pcWins += 1;
             }
@@ -50,7 +50,7 @@
     overallWinner(playerWins, pcWins);
 
 
-    
+
 
 /* ___________FUNCTIONS___________ */
 
