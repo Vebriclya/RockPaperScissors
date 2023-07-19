@@ -12,7 +12,7 @@ console.log(computerTurn);
 // Compare the user entry and the computer entry
 switch(true){
     // both values are the same = tie
-    case (computerTurn === userTurn):
+    case (computerTurn === playerTurn):
         console.log("It's a tie!");
         break;
     //player rock vs pc paper = pc wins
