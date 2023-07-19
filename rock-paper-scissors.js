@@ -28,7 +28,7 @@
      */
 
     // Loop through the array to calculate winners
-    winnerArray.forEach((winner) => {
+    winnerArray.forEach(winner => {
             if(winner === "pc"){
                 pcWins += 1;
             }
