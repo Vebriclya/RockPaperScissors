@@ -1,18 +1,17 @@
-// Greet user
-console.log("Welcome to Rock, Paper, Scissors!");
+    // Greet user
+    console.log("Welcome to Rock, Paper, Scissors!");
 
-// Ask user to choose rock, paper, or scissors
-// Check the entry is valid
-let playerTurn = getUserEntry();
+    // Ask user to choose rock, paper, or scissors
+    // Check the entry is valid
+    let playerTurn = getUserEntry();
 
-// Randomly generate rock, paper, or scissors for the computer
-let computerTurn = generateComputerTurn();
+    // Randomly generate rock, paper, or scissors for the computer
+    let computerTurn = generateComputerTurn();
 
-// Compare the user entry and the computer entry
-battle(playerTurn, computerTurn);
+    // Compare the user entry and the computer entry
+    battle(playerTurn, computerTurn);
 
 
-// Ask user if they want to play again, otherwise quit
 
 /* ___________FUNCTIONS___________ */
 
