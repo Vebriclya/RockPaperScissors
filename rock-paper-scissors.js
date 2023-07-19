@@ -17,6 +17,8 @@ console.log(computerTurn);
 
 // If one is paper and the other is scissors, scissors win
 
+// If both values are the same, it's a tie
+
 // Print the winner
 
 // Ask user if they want to play again, otherwise quit
@@ -49,7 +51,7 @@ function getUserEntry(){
         userChoice = prompt("Please choose rock, paper, or scissors");
         if(userChoice.toLowerCase() === "rock" || userChoice.toLowerCase() === "paper" || userChoice.toLowerCase() === "scissors"){
             verifyEntry = true;
-            console.log(`You entered ${userChoice}`);
+            console.log(`You entered ${userChoice.toLowerCase()}`);
         }
         else{
             console.log(`Sorry, ${userChoice} isn't a valid entry.`);
