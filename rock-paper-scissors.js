@@ -1,5 +1,5 @@
     let continueGame = true;
-    let winnerArray;
+    let winnerArray = ["dummyentry1", "dummyentry2"];
     
     // Greet user
     console.log("Welcome to Rock, Paper, Scissors!");
@@ -13,7 +13,7 @@
     }
 
     // Display how many times you won, and how many times pc won
-    //console.log(winnerArray)
+    console.log(winnerArray)
 
     /* Display a message about that
     if(playerWins > pcWins){
@@ -41,7 +41,7 @@ function playRound(){
     let computerTurn = generateComputerTurn();
 
     // Compare the user entry and the computer entry
-    battle(playerTurn, computerTurn);
+    winner = battle(playerTurn, computerTurn);
 
     return winner;
 }
