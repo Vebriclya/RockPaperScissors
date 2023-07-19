@@ -7,27 +7,9 @@
     while(continueGame === true){
         let winner = playRound();
         logWin(winner);
-
+        continueGame = anotherRound();
         
-        let anotherRound = "";
-
-        while(anotherRound != "y" && anotherRound != "n"){
-            anotherRound = prompt("Keep playing? Y/N");
-            console.log(anotherRound);
-            if(anotherRound.toLowerCase() === "y" || anotherRound.toLowerCase() === "yes"){
-                anotherRound = "y";
-                console.log(`continueGame is ${continueGame}`);
-            }
-            else if(anotherRound.toLowerCase() === "n" || anotherRound.toLowerCase() === "no"){
-                anotherRound = "n";
-                continueGame = false;
-                console.log(`continueGame is ${continueGame}`);
-            }
-            else{
-                console.log(`Sorry, ${anotherRound} isn't a valid answer.`);
-                console.log(`continueGame is ${continueGame}`);
-            }
-        }
+        
     }
 
     // Display how many times you won, and how many times pc won
@@ -176,4 +158,27 @@ function logWin(winner){
     else{
         console.log("An error has occurred logging the winner. No winners have been logged.");
     }
+}
+
+function anotherRound(continueGame){
+    let anotherRound = "";
+
+        while(anotherRound != "y" && anotherRound != "n"){
+            anotherRound = prompt("Keep playing? Y/N");
+
+            if(anotherRound.toLowerCase() === "y" || anotherRound.toLowerCase() === "yes"){
+                anotherRound = "y";
+                continueGame = true;
+            }
+            else if(anotherRound.toLowerCase() === "n" || anotherRound.toLowerCase() === "no"){
+                anotherRound = "n";
+                continueGame = false;
+            }
+            else{
+                console.log(`Sorry, ${anotherRound} isn't a valid answer.`);
+                continueGame = true;
+            }
+        }
+
+    return continueGame;
 }
