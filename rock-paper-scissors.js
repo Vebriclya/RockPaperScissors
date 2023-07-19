@@ -1,6 +1,14 @@
     // Greet user
     console.log("Welcome to Rock, Paper, Scissors!");
 
+    playRound();
+
+
+
+
+/* ___________FUNCTIONS___________ */
+
+function playRound(){
     // Ask user to choose rock, paper, or scissors
     // Check the entry is valid
     let playerTurn = getUserEntry();
@@ -10,10 +18,7 @@
 
     // Compare the user entry and the computer entry
     battle(playerTurn, computerTurn);
-
-
-
-/* ___________FUNCTIONS___________ */
+}
 
 function generateComputerTurn(){
     let computerTurn = Math.floor(Math.random() * 3) + 1;
