@@ -10,14 +10,28 @@ let computerTurn = generateComputerTurn();
 console.log(computerTurn);
 
 // Compare the user entry and the computer entry
+switch(true){
+    case (computerTurn === userTurn):
+        console.log("It's a tie!");
+        break;
+    case (computerTurn === "rock" && userTurn === "scissors"):
+        console.log("")
+    
+}
 
-// If one is rock and the other is scissors, rock wins
+// both values are the same = tie
 
-// If one is rock and the other is paper, paper wins
+//player rock vs pc paper = pc wins
+//pc rock vs player paper = player wins
 
-// If one is paper and the other is scissors, scissors win
+//pc rock vs player scissors = pc wins
+//player rock vs pc scissors = player wins
 
-// If both values are the same, it's a tie
+//pc paper vs player rock = pc wins
+//player paper vs pc rock = player wins
+
+//player paper vs pc scissors = pc wins
+//pc paper vs player scissors = player wins
 
 // Print the winner
 
