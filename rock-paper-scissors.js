@@ -3,10 +3,9 @@
     let playerWins = 0;
     let winnerArray = ["dummyentry1", "dummyentry2"];
     
-    // Greet user
     console.log("Welcome to Rock, Paper, Scissors!");
 
-    // Main game loop
+    // This loops through the main game
     while(continueGame === true){
         let winner = playRound();
         logWin(winner);
@@ -27,7 +26,7 @@
      vs virgin JS...
      */
 
-    // Loop through the array to calculate winners
+    // This loops through the winner array in order to calculate who won how many times
     winnerArray.forEach(winner => {
             if(winner === "pc"){
                 pcWins += 1;
@@ -46,7 +45,6 @@
             }
     });
 
-    // Print out the overall winner
     overallWinner(playerWins, pcWins);
 
 
@@ -56,20 +54,15 @@
 
 function playRound(){
     let winner = "";
-    // Ask user to choose rock, paper, or scissors
-    // Check the entry is valid
+    
     let playerTurn = getUserEntry();
-
-    // Randomly generate rock, paper, or scissors for the computer
-    let computerTurn = generateComputerTurn();
-
-    // Compare the user entry and the computer entry
+    let computerTurn = getComputerTurn();
     winner = battle(playerTurn, computerTurn);
 
     return winner;
 }
 
-function generateComputerTurn(){
+function getComputerTurn(){
     let computerTurn = Math.floor(Math.random() * 3) + 1;
 
     if(computerTurn === 1){
