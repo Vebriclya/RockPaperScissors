@@ -32,24 +32,6 @@ gameArea.appendChild(displayBattle);
 gameArea.appendChild(displayResult);
 gameArea.appendChild(battleLog);
 
-// This loops through the winner array in order to calculate who won how many times
-/*
-winnerArray.forEach((winner) => {
-  if (winner === "pc") {
-    pcWins += 1;
-  } else if (winner === "player") {
-    playerWins += 1;
-  } else if (winner === "tie") {
-    pcWins += 1;
-    playerWins += 1;
-  } else {
-    console.log("An error occured calculating win amounts.");
-  }
-});
-*/
-//console.log(winnerArray);
-//overallWinner(playerWins, pcWins);
-
 /* ___________FUNCTIONS___________ */
 
 function playRound(playerTurn) {
