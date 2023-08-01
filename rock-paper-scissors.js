@@ -35,6 +35,7 @@ buttons.forEach((button) => {
         document.querySelector('#scissors').disabled = true;
 
         gameArea.appendChild(tryAgainButton);
+        tryAgainButton.addEventListener("click", restartGame);
     }
     
   });
@@ -55,11 +56,16 @@ function playRound(playerTurn) {
 }
 
 function restartGame(){
-    
+    pcWins = 0;
+    playerWins = 0;
+
 
     document.querySelector('#rock').disabled = false;
     document.querySelector('#paper').disabled = false;
     document.querySelector('#scissors').disabled = false;
+    runningTotalP.textContent = "";
+    overallWinnerP.textContent = "";
+    gameArea.removeChild(tryAgainButton);
 }
 
 function getComputerTurn() {
