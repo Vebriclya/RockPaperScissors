@@ -5,11 +5,11 @@ const buttons = document.querySelectorAll("button");
 const gameArea = document.querySelector("#gameArea");
 const battleDisplayP = document.createElement("p");
 const runningTotalP = document.createElement("p");
-const battleLog = document.createElement("p");
+const overallWinnerP = document.createElement("p");
 const tryAgainButton = document.createElement("button");
 
 battleDisplayP.setAttribute("style", "white-space: pre;");
-battleLog.setAttribute("style", "white-space: pre;");
+overallWinnerP.setAttribute("style", "white-space: pre;");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -28,6 +28,9 @@ buttons.forEach((button) => {
 
     if(pcWins === 5 || playerWins === 5){
         overallWinner(playerWins, pcWins);
+        document.querySelector('#rock').disabled = true;
+        document.querySelector('#paper').disabled = true;
+        document.querySelector('#scissors').disabled = true;
     }
     
   });
@@ -35,7 +38,7 @@ buttons.forEach((button) => {
 
 gameArea.appendChild(battleDisplayP);
 gameArea.appendChild(runningTotalP);
-gameArea.appendChild(battleLog);
+gameArea.appendChild(overallWinnerP);
 
 /* ___________FUNCTIONS___________ */
 
@@ -149,20 +152,20 @@ function displayTotal(playerWins, pcWins){
 }
 
 function overallWinner(playerWins, pcWins) {
-  battleLog.textContent = `You won ${playerWins} times, and the computer won ${pcWins} times.\r\n`;
-  battleLog.textContent += `Which means...\r\n`;
+  overallWinnerP.textContent = `You won ${playerWins} times, and the computer won ${pcWins} times.\r\n`;
+  overallWinnerP.textContent += `Which means...\r\n`;
 
   if (playerWins > pcWins) {
-    battleLog.textContent +=
+    overallWinnerP.textContent +=
       "Congrats, you're officially better than the computer!";
   } else if (pcWins > playerWins) {
-    battleLog.textContent +=
+    overallWinnerP.textContent +=
       "The computer was better than you. How embarassing.";
   } else if (pcWins === playerWins) {
-    battleLog.textContent +=
+    overallWinnerP.textContent +=
       "You're about as good at this as the computer. Make of this what you will.";
   } else {
-    battleLog.textContent +=
+    overallWinnerP.textContent +=
       "An error occurred comparing winners. We don't know if you are smarter than the computer.";
   }
 }
