@@ -17,23 +17,13 @@ buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const winner = playRound(button.id);
 
-    if (winner === "pc") {
-      pcWins += 1;
-    } else if (winner === "player") {
-      playerWins += 1;
-    } else if (winner === "tie") {
-      pcWins += 0;
-      playerWins += 0;
-    }
+    logWin(winner);
 
     displayTotal(playerWins, pcWins);
 
     if(pcWins === 5 || playerWins === 5){
         overallWinner(playerWins, pcWins);
-        document.querySelector('#rock').disabled = true;
-        document.querySelector('#paper').disabled = true;
-        document.querySelector('#scissors').disabled = true;
-
+        disableButtons();
         gameArea.appendChild(tryAgainButton);
         tryAgainButton.addEventListener("click", restartGame);
     }
@@ -55,14 +45,35 @@ function playRound(playerTurn) {
   return winner;
 }
 
+function logWin(winner){
+    if (winner === "pc") {
+        pcWins += 1;
+      } else if (winner === "player") {
+        playerWins += 1;
+      } else if (winner === "tie") {
+        pcWins += 0;
+        playerWins += 0;
+      }
+}
+
+function disableButtons(){
+    document.querySelector('#rock').disabled = true;
+    document.querySelector('#paper').disabled = true;
+    document.querySelector('#scissors').disabled = true;
+}
+
+function enableButtons(){
+    document.querySelector('#rock').disabled = false;
+    document.querySelector('#paper').disabled = false;
+    document.querySelector('#scissors').disabled = false;
+}
+
 function restartGame(){
     pcWins = 0;
     playerWins = 0;
 
 
-    document.querySelector('#rock').disabled = false;
-    document.querySelector('#paper').disabled = false;
-    document.querySelector('#scissors').disabled = false;
+    enableButtons();
     runningTotalP.textContent = "";
     overallWinnerP.textContent = "";
     gameArea.removeChild(tryAgainButton);
