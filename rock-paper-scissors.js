@@ -4,10 +4,11 @@ let winnerArray = [];
 
 const buttons = document.querySelectorAll("button");
 const gameArea = document.querySelector("#gameArea");
-const displayBattle = document.createElement("p");
-const displayResult = document.createElement("p");
+const battleDisplayDiv = document.createElement("p");
+const resultDisplayDiv = document.createElement("p");
 const battleLog = document.createElement("p");
 
+battleDisplayDiv.setAttribute("style", "white-space: pre;");
 battleLog.setAttribute("style", "white-space: pre;");
 
 buttons.forEach((button) => {
@@ -20,16 +21,19 @@ buttons.forEach((button) => {
     } else if (winner === "player") {
       playerWins += 1;
     } else if (winner === "tie") {
-      pcWins += 1;
-      playerWins += 1;
+      pcWins += 0;
+      playerWins += 0;
     }
 
-    overallWinner(playerWins, pcWins);
+    if(pcWins === 5 || playerWins === 5){
+        overallWinner(playerWins, pcWins);
+    }
+    
   });
 });
 
-gameArea.appendChild(displayBattle);
-gameArea.appendChild(displayResult);
+gameArea.appendChild(battleDisplayDiv);
+gameArea.appendChild(resultDisplayDiv);
 gameArea.appendChild(battleLog);
 
 /* ___________FUNCTIONS___________ */
@@ -64,72 +68,72 @@ function battle(playerTurn, computerTurn) {
   switch (true) {
     // both values are the same = tie
     case computerTurn === playerTurn:
-      displayBattle.textContent = `You played ${playerTurn} vs computers ${computerTurn}`;
-      displayResult.textContent = "It's a tie!";
+      battleDisplayDiv.textContent = `You played ${playerTurn} vs computers ${computerTurn}\r\n`;
+      battleDisplayDiv.textContent += "It's a tie!\r\n";
       console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
       console.log("It's a tie!");
       winner = "tie";
       break;
     //player rock vs pc paper = pc wins
     case playerTurn === "rock" && computerTurn === "paper":
-      displayBattle.textContent = `You played ${playerTurn} vs computers ${computerTurn}`;
-      displayResult.textContent = "Computer wins!";
+      battleDisplayDiv.textContent = `You played ${playerTurn} vs computers ${computerTurn}\r\n`;
+      battleDisplayDiv.textContent += "Computer wins!\r\n";
       console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
       console.log("Computer wins!");
       winner = "pc";
       break;
     //pc rock vs player paper = player wins
     case computerTurn === "rock" && playerTurn === "paper":
-      displayBattle.textContent = `You played ${playerTurn} vs computers ${computerTurn}`;
-      displayResult.textContent = "Player wins!";
+      battleDisplayDiv.textContent = `You played ${playerTurn} vs computers ${computerTurn}\r\n`;
+      battleDisplayDiv.textContent += "Player wins!\r\n";
       console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
       console.log("Player wins!");
       winner = "player";
       break;
     //pc rock vs player scissors = pc wins
     case computerTurn === "rock" && playerTurn === "scissors":
-      displayBattle.textContent = `You played ${playerTurn} vs computers ${computerTurn}`;
-      displayResult.textContent = "Computer wins!";
+      battleDisplayDiv.textContent = `You played ${playerTurn} vs computers ${computerTurn}\r\n`;
+      battleDisplayDiv.textContent += "Computer wins!\r\n";
       console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
       console.log("Computer wins!");
       winner = "pc";
       break;
     //player rock vs pc scissors = player wins
     case playerTurn === "rock" && computerTurn === "scissors":
-      displayBattle.textContent = `You played ${playerTurn} vs computers ${computerTurn}`;
-      displayResult.textContent = "Player wins!";
+      battleDisplayDiv.textContent = `You played ${playerTurn} vs computers ${computerTurn}\r\n`;
+      battleDisplayDiv.textContent += "Player wins!\r\n";
       console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
       console.log("Player wins!");
       winner = "player";
       break;
     //pc paper vs player rock = pc wins
     case computerTurn === "paper" && playerTurn === "rock":
-      displayBattle.textContent = `You played ${playerTurn} vs computers ${computerTurn}`;
-      displayResult.textContent = "Computer wins!";
+      battleDisplayDiv.textContent = `You played ${playerTurn} vs computers ${computerTurn}\r\n`;
+      battleDisplayDiv.textContent += "Computer wins!\r\n";
       console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
       console.log("Computer wins!");
       winner = "pc";
       break;
     //player paper vs pc rock = player wins
     case playerTurn === "paper" && computerTurn === "rock":
-      displayBattle.textContent = `You played ${playerTurn} vs computers ${computerTurn}`;
-      displayResult.textContent = "Player wins!";
+      battleDisplayDiv.textContent = `You played ${playerTurn} vs computers ${computerTurn}\r\n`;
+      battleDisplayDiv.textContent += "Player wins!\r\n";
       console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
       console.log("Player wins!");
       winner = "player";
       break;
     //player paper vs pc scissors = pc wins
     case playerTurn === "paper" && computerTurn === "scissors":
-      displayBattle.textContent = `You played ${playerTurn} vs computers ${computerTurn}`;
-      displayResult.textContent = "Computer wins!";
+      battleDisplayDiv.textContent = `You played ${playerTurn} vs computers ${computerTurn}\r\n`;
+      battleDisplayDiv.textContent += "Computer wins!\r\n";
       console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
       console.log("Computer wins!");
       winner = "pc";
       break;
     //pc paper vs player scissors = player wins
     case computerTurn === "paper" && playerTurn === "scissors":
-      displayBattle.textContent = `You played ${playerTurn} vs computers ${computerTurn}`;
-      displayResult.textContent = "Player wins!";
+      battleDisplayDiv.textContent = `You played ${playerTurn} vs computers ${computerTurn}\r\n`;
+      battleDisplayDiv.textContent += "Player wins!\r\n";
       console.log(`You played ${playerTurn} vs computers ${computerTurn}`);
       console.log("Player wins!");
       winner = "player";
@@ -145,8 +149,7 @@ function logWin(winner) {
   } else if (winner === "player") {
     winnerArray.push("player");
   } else if (winner === "tie") {
-    winnerArray.push("pc");
-    winnerArray.push("player");
+    // Do nothing
   } else {
     console.log(
       "An error has occurred logging the winner. No winners have been logged."
@@ -154,6 +157,10 @@ function logWin(winner) {
   }
 
   console.log(winnerArray);
+}
+
+function displayTotal(playerWins, pcWins){
+
 }
 
 function overallWinner(playerWins, pcWins) {
