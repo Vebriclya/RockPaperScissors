@@ -8,8 +8,10 @@ const runningTotalP = document.createElement("p");
 const overallWinnerP = document.createElement("p");
 const tryAgainButton = document.createElement("button");
 
+
 battleDisplayP.setAttribute("style", "white-space: pre;");
 overallWinnerP.setAttribute("style", "white-space: pre;");
+tryAgainButton.textContent = "Try Again?";
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -31,6 +33,8 @@ buttons.forEach((button) => {
         document.querySelector('#rock').disabled = true;
         document.querySelector('#paper').disabled = true;
         document.querySelector('#scissors').disabled = true;
+
+        gameArea.appendChild(tryAgainButton);
     }
     
   });
@@ -48,6 +52,14 @@ function playRound(playerTurn) {
   winner = battle(playerTurn, computerTurn);
 
   return winner;
+}
+
+function restartGame(){
+    
+
+    document.querySelector('#rock').disabled = false;
+    document.querySelector('#paper').disabled = false;
+    document.querySelector('#scissors').disabled = false;
 }
 
 function getComputerTurn() {
